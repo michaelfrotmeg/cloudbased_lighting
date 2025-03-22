@@ -29,11 +29,18 @@ exports.handler = async (event) => {
         let transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: process.env.SMTP_PORT,
-            secure: process.env.SMTP_PORT == 587, // true for 465, false for other ports
+            secure: process.env.SMTP_PORT == 46, // true for 465, false for other ports
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
             },
+
+            tls: {
+                rejectUnauthorized: true, // Reject unauthorized certificates (important for security)
+                minVersion: 'TLSv1.2', // Enforce TLS 1.2 or higher
+            },
+
+            debug: true, // 
         });
 
         console.log("SMTP Host:", process.env.SMTP_HOST);
