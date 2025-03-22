@@ -23,6 +23,8 @@ exports.handler = async (event) => {
             };
         }
 
+        
+
         // Create a transporter for sending the email using the SMTP details
         let transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
@@ -33,6 +35,19 @@ exports.handler = async (event) => {
                 pass: process.env.SMTP_PASS,
             },
         });
+
+        console.log("SMTP Host:", process.env.SMTP_HOST);
+        console.log("SMTP Port:", process.env.SMTP_PORT);
+
+
+        transporter.verify((error, success) => {
+            if (error) {
+                console.error("SMTP Server Verification Failed:", error);
+            } else {
+                console.log("SMTP Server is ready to send emails");
+            }
+        });
+        
 
         // Generate a message from all form data
         let messageContent = "You have received a new form submission:\n\n";
