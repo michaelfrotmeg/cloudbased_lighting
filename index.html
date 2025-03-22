@@ -26,8 +26,8 @@
 <script src="7144-0e44339409c32bab.js" async=""></script>
 <script src="9824-c129fac527560c26.js" async=""></script>
 <script src="layout-a618974cd6b8d53c.js" async=""></script>
-<script src="layout-1f361a3ddf6afa76.js" async=""></script>-->
-<link rel="preload" href="d0320de32467736e.css" as="style">
+<script src="layout-1f361a3ddf6afa76.js" async=""></script>
+<link rel="preload" href="d0320de32467736e.css" as="style">-->
 <link rel="preload" href="script.js" as="script">
 <link rel="icon" href="#">
 <link rel="canonical" href="#">
@@ -940,7 +940,7 @@
             </div>
           </div>
         </div>
-        <div class="lcai-left-panel-overlay "></div>
+        <div class="lcai-left-panel-overlay " style="display:none;"></div>
         <div class="lcai-main-content hidden-blur">
           <div class="lcai-daynamic-page-content d-flex mt--20 ">
             <div class="lcai-dashboard-content lcai-dashboard-content-var-two">
@@ -1242,7 +1242,16 @@
                 color: #7064e9;
                 font-weight: bold;
             }
-        </style>
+
+            @media screen and (max-width: 600px) {
+                .popup-content{
+                    width: 130%;
+                }
+                .coin{
+                  width: 25%;
+                }
+            }
+                    </style>
     
         <script>
             const popup = document.getElementById("popup");
@@ -1263,6 +1272,29 @@
             });
         </script>
     
-        
+        <!--<script>
+          document.addEventListener("DOMContentLoaded", function () {
+              const popup = document.getElementById("popup");
+              const openPopupBtn = document.getElementById("openPopup");
+      
+              function openPopup() {
+                  popup.style.display = "block";
+              }
+      
+              function closePopup() {
+                  popup.style.display = "none";
+              }
+      
+              openPopupBtn.addEventListener("click", openPopup);
+              openPopupBtn.addEventListener("pointerdown", openPopup, { passive: true });
+      
+              window.addEventListener("click", function (event) {
+                  if (event.target === popup) {
+                      closePopup();
+                  }
+              });
+          });
+      </script>-->
+      
         
         </body></html>
